@@ -4,7 +4,7 @@ kube-state-metrics:
     tag: v1.9.6
 alertmanager:
   persistentVolume:
-    existingClaim: pvc2
+    storageClass: rook-ceph-block
 server:
   persistentVolume:
-    existingClaim: pvc1
+    storageClass: rook-ceph-block

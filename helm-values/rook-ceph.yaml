@@ -1,0 +1,13 @@
+csi:
+  cephcsi:
+    image: quay.io/cephcsi/cephcsi:v3.1.1-arm64
+  registrar:
+    image: colek42/csi-node-driver-registrar
+  resizer:
+    image: teanan/csi-resizer:v0.4.0
+  provisioner:
+    image: boky/csi-provisioner
+  snapshotter:
+    image: jrefi/csi-snapshotter
+  attacher:
+    image: boky/csi-attacher
