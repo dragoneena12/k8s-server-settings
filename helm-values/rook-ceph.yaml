@@ -1,6 +1,4 @@
 csi:
-  cephcsi:
-    image: quay.io/cephcsi/cephcsi:v3.1.1-arm64
   registrar:
     image: colek42/csi-node-driver-registrar
   resizer:
