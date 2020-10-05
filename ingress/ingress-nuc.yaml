@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nuc
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+spec:
+  rules:
+    - host: utfurry.tk
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nuc
+              servicePort: 443
+    - host: www.utfurry.tk
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nuc
+              servicePort: 443
+    - host: wiki.utfurry.tk
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nuc
+              servicePort: 443
+    - host: cloud.utfurry.tk
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nuc
+              servicePort: 443
