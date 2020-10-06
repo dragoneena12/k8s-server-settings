@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: terraria
-spec:
-  type: ExternalName
-  externalName: terraria.terraria.svc.cluster.local

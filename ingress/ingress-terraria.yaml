@@ -1,16 +1,7 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: v1
+kind: ConfigMap
 metadata:
   name: terraria
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-
-spec:
-  rules:
-    - host: terraria.lapi.gq
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: terraria
-              servicePort: 7777
+  namespace: ingress-nginx
+data:
+  7777: "terraria/terraria:7777"
