@@ -1,0 +1,7 @@
+image:
+  repository: "shunransasaki/terraria"
+persistence:
+  enabled: true
+  size: "1Gi"
+  storageClassName: "rook-ceph-block"
+replicaCount: 3
