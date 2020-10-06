@@ -1,7 +1,7 @@
 kube-state-metrics:
   image:
-    repository: carlosedp/kube-state-metrics
-    tag: v1.9.6
+    repository: k8s.gcr.io/kube-state-metrics/kube-state-metrics-arm64
+    tag: 2.0.0-alpha
 alertmanager:
   persistentVolume:
     storageClass: rook-ceph-block
