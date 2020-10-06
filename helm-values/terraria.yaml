@@ -5,3 +5,6 @@ persistence:
   size: "1Gi"
   storageClassName: "rook-ceph-block"
 replicaCount: 1
+terraria:
+  service:
+    type: "LoadBalancer"

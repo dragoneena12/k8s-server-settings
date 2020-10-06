@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: terraria
-  namespace: ingress-nginx
-data:
-  7777: "terraria/terraria:7777"
