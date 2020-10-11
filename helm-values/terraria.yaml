@@ -10,5 +10,6 @@ terraria:
   service:
     type: "LoadBalancer"
 rest:
+  enabled: true
   service:
     type: "LoadBalancer"
