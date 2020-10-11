@@ -6,5 +6,9 @@ persistence:
   storageClassName: "rook-ceph-block"
 replicaCount: 1
 terraria:
+  difficulty: 2
+  service:
+    type: "LoadBalancer"
+rest:
   service:
     type: "LoadBalancer"
