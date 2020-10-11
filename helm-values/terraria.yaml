@@ -4,12 +4,12 @@ persistence:
   enabled: true
   size: "1Gi"
   storageClassName: "rook-ceph-block"
-replicaCount: 1
 terraria:
   difficulty: 2
   service:
     type: "LoadBalancer"
 rest:
-  enabled: true
+  # enabled: true
   service:
     type: "LoadBalancer"
+    port: 7878
