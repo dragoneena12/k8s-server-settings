@@ -1,7 +1,7 @@
 # https://halkeye.github.io/helm-charts/
 
 image:
-  repository: "shunransasaki/terraria"
+  repository: "dragoneena12/terraria"
 persistence:
   enabled: true
   size: "1Gi"
@@ -11,7 +11,7 @@ terraria:
   service:
     type: "LoadBalancer"
 rest:
-  # enabled: true
+  enabled: true
   service:
     type: "LoadBalancer"
     port: 7878
