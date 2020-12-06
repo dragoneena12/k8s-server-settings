@@ -19,12 +19,12 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: lapi-website-gatsby-service
+              serviceName: lapi-website-gatsby
               servicePort: 80
     - host: lapi.gq
       http:
         paths:
           - path: /
             backend:
-              serviceName: lapi-website-gatsby-service
+              serviceName: lapi-website-gatsby
               servicePort: 80

@@ -4,4 +4,4 @@ metadata:
   name: lapi-website-gatsby
 spec:
   type: ExternalName
-  externalName: lapi-website-gatsby.lapi-website-gatsby.svc.cluster.local
+  externalName: lapi-website-gatsby-service.lapi-website-gatsby.svc.cluster.local
