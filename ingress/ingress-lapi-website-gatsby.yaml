@@ -11,12 +11,20 @@ spec:
   tls:
     - hosts:
         - www.lapi.gq
+        - lapi.gq
       secretName: lapi-website-gatsby-tls
   rules:
-    - host: lapi-website-gatsby.lapi.gq
+    - host: www.lapi.gq
       http:
         paths:
           - path: /
             backend:
-              serviceName: lapi-website-gatsby
+              serviceName: lapi-website-gatsby-service
+              servicePort: 80
+    - host: lapi.gq
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: lapi-website-gatsby-service
               servicePort: 80
