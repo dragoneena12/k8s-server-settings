@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lapi-website-gatsby
+spec:
+  type: ExternalName
+  externalName: lapi-website-gatsby.lapi-website-gatsby.svc.cluster.local
