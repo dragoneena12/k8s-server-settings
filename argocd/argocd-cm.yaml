@@ -8,6 +8,7 @@ metadata:
   name: argocd-cm
 data:
   url: https://argocd.lapi.gq
+  admin.enabled: "false"
   application.instanceLabelKey: argocd.argoproj.io/instance
   oidc.config: |
     name: Auth0
