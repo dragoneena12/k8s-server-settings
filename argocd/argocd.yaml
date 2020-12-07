@@ -2613,6 +2613,21 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-cm
+data:
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  oidc.config: |
+    name: Auth0
+    issuer: https://lapi.us.auth0.com/
+    clientID: ijo0ZHt8E4Xv17jAlBG5UKsUaA9TZQxF
+    clientSecret: I-IRp-hNsebMTHUTqGSc16qVA1Urva6QbUbmNBLAmWBovcNIcll6Q1Sl-NVk7nmR
+    requestedIDTokenClaims:
+      groups:
+        essential: true
+    requestedScopes:
+      - openid
+      - profile
+      - email
+      - 'https://lapi.gq/claims/groups'
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -2629,6 +2644,10 @@ metadata:
     app.kubernetes.io/name: argocd-rbac-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-rbac-cm
+data:
+  policy.csv: |
+    g, lapi-k8s-admin, role:admin
+  scopes: '[https://lapi.gq/claims/groups, email]'
 ---
 apiVersion: v1
 data:
