@@ -24,6 +24,18 @@ spec:
           volumeMounts:
             - name: pritunl-pvc
               mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: pritunl-pvc
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "manual"
+        resources:
+          requests:
+            storage: 1Gi
+        selector:
+          matchLabels:
+            name: pritunl-pv
 ---
 apiVersion: v1
 kind: Service
