@@ -29,7 +29,9 @@ spec:
             - name: SERVERURL
               value: "vpn.lapi.gq"
             - name: PEERS
-              value: "1"
+              value: "macbookair,iphone,guest"
+            - name: PEERDNS
+              value: "10.233.0.3"
           ports:
             - protocol: UDP
               containerPort: 51820
