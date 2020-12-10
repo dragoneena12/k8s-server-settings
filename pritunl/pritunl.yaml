@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: pritunl
-          image: goofball222/pritunl:1.29.2591.94
+          image: dragoneena12/pritunl:latest
           env:
             - name: MONGODB_URI
               value: "mongodb://mongo:27017/pritunl"
@@ -36,6 +36,7 @@ metadata:
 spec:
   selector:
     app: pritunl
+  type: LoadBalancer
   ports:
     - name: web
       protocol: TCP
@@ -43,5 +44,3 @@ spec:
     - name: openvpn
       protocol: TCP
       port: 1194
-status:
-  loadBalancer:
