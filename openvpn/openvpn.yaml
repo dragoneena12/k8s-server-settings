@@ -49,3 +49,4 @@ spec:
   ports:
     - protocol: UDP
       port: 1194
+  type: LoadBalancer
