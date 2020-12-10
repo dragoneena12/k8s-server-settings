@@ -28,16 +28,10 @@ spec:
     - metadata:
         name: pritunl-pvc
       spec:
-        accessModes:
-          - ReadWriteOnce
-        storageClassName: manual
-        volumeMode: Filesystem
+        accessModes: ["ReadWriteOnce"]
         resources:
           requests:
             storage: 1Gi
-        selector:
-          matchLabels:
-            name: pritunl-pv
 ---
 apiVersion: v1
 kind: Service

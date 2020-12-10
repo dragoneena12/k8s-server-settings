@@ -10,6 +10,9 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  claimRef:
+    namespace: pritunl
+    name: pritunl-pvc-mongodb-statefulset-0
   local:
     path: /mnt/sda/data/pritunl
   nodeAffinity:
