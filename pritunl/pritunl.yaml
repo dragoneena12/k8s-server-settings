@@ -18,6 +18,7 @@ spec:
       containers:
         - name: pritunl
           image: goofball222/pritunl:1.29.2591.94
+          privileged: true
           env:
             - name: MONGODB_URI
               value: "mongodb://mongo:27017/pritunl"
