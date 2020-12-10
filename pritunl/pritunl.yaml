@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pritunl-deployment
+  namespace: pritunl
+  labels:
+    app: pritunl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pritunl
+  template:
+    metadata:
+      labels:
+        app: pritunl
+    spec:
+      containers:
+        - name: pritunl
+          image: goofball222/pritunl:1.29.2591.94
+          env:
+            - name: MONGODB_URI
+              value: "mongodb://mongo:27017/pritunl"
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+            - containerPort: 1194
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pritunl-service
+  namespace: pritunl
+spec:
+  selector:
+    app: pritunl
+  ports:
+    - protocol: TCP
+      port: 80
+    - protocol: TCP
+      port: 1194
+status:
+  loadBalancer:
