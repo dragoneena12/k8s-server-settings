@@ -1,9 +1,9 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: pritunl-pv
+  name: wireguard-pv
   labels:
-    name: pritunl-pv
+    name: wireguard-pv
 spec:
   storageClassName: manual
   capacity:
@@ -11,10 +11,10 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: pritunl
-    name: pritunl-pvc-mongodb-statefulset-0
+    namespace: wireguard
+    name: wireguard-pvc-wireguard-statefulset-0
   local:
-    path: /mnt/sda/data/pritunl
+    path: /mnt/sda/data/wireguard
   nodeAffinity:
     required:
       nodeSelectorTerms:

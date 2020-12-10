@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: wireguard-statefulset
+  namespace: wireguard
+  labels:
+    app: wireguard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wireguard
+  serviceName: wireguard
+  template:
+    metadata:
+      labels:
+        app: wireguard
+    spec:
+      containers:
+        - name: wireguard
+          image: linuxserver/wireguard:version-v1.0.20200827
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Asia/Tokyo"
+            - name: SERVERURL
+              value: "vpn.lapi.gq"
+          ports:
+            - protocol: UDP
+              containerPort: 51820
+          volumeMounts:
+            - name: wireguard-pvc
+              mountPath: /config
+            - name: modules
+              mountPath: /lib/modules
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+                - SYS_MODULE
+      volumes:
+        - name: modules
+          hostPath:
+            path: /lib/modules
+  volumeClaimTemplates:
+    - metadata:
+        name: wireguard-pvc
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wireguard-service
+  namespace: wireguard
+spec:
+  selector:
+    app: wireguard
+  ports:
+    - protocol: UDP
+      port: 51820
+  type: LoadBalancer
