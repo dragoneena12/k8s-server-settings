@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: openvpn
-          image: dragoneena12/docker-openvpn:2.4.9
+          image: dragoneena12/docker-openvpn:latest
           ports:
             - protocol: UDP
               containerPort: 1194
@@ -31,13 +31,13 @@ spec:
                 - NET_ADMIN
       initContainers:
         - name: init-genconfig
-          image: dragoneena12/docker-openvpn:2.4.9
+          image: dragoneena12/docker-openvpn:latest
           command: ["ovpn_genconfig", "-u", "udp://vpn.lapi.gq"]
           volumeMounts:
             - name: openvpn-pvc
               mountPath: /etc/openvpn
         - name: init-initpki
-          image: dragoneena12/docker-openvpn:2.4.9
+          image: dragoneena12/docker-openvpn:latest
           command: ["ovpn_initpki"]
           volumeMounts:
             - name: openvpn-pvc
