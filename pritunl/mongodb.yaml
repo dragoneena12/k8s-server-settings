@@ -28,8 +28,9 @@ spec:
     - metadata:
         name: pritunl-pvc
       spec:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: "manual"
+        accessModes:
+          - ReadWriteOnce
+        volumeMode: Filesystem
         resources:
           requests:
             storage: 1Gi
