@@ -28,6 +28,8 @@ spec:
               value: "Asia/Tokyo"
             - name: SERVERURL
               value: "vpn.lapi.gq"
+            - name: PEERS
+              value: "1"
           ports:
             - protocol: UDP
               containerPort: 51820
