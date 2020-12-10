@@ -20,19 +20,3 @@ spec:
               operator: In
               values:
                 - node1
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pritunl-pvc
-  namespace: pritunl
-spec:
-  storageClassName: manual
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  selector:
-    matchLabels:
-      name: pritunl-pv
