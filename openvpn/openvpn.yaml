@@ -36,7 +36,7 @@ spec:
           volumeMounts:
             - name: openvpn-pvc
               mountPath: /etc/openvpn
-        - name: init-genconfig
+        - name: init-initpki
           image: project31/aarch64-docker-openvpn:2.4.9
           command: ["ovpn_initpki"]
           volumeMounts:
