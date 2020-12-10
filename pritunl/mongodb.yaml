@@ -30,6 +30,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
+        storageClassName: manual
         volumeMode: Filesystem
         resources:
           requests:
