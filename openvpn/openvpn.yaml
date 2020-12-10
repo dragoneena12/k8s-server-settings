@@ -38,7 +38,7 @@ spec:
               mountPath: /etc/openvpn
         - name: init-initpki
           image: dragoneena12/docker-openvpn:latest
-          command: ["ovpn_initpki"]
+          command: ["sh", "-c", "echo yes | ovpn_initpki"]
           volumeMounts:
             - name: openvpn-pvc
               mountPath: /etc/openvpn
