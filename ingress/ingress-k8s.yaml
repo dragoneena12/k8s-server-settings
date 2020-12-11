@@ -24,3 +24,7 @@ spec:
             backend:
               serviceName: kubernetes-dashboard
               servicePort: 443
+          - path: /prometheus
+            backend:
+              serviceName: prometheus
+              servicePort: 9090
