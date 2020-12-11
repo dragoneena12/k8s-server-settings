@@ -37,7 +37,7 @@ spec:
             - name: config-volume
               mountPath: /mnt/etc/
             - name: prometheus-pvc
-              mountPath: /etc/prometheus/data
+              mountPath: /prometheus
             - name: secrets-volume
               mountPath: /var/run/secrets
       volumes:
