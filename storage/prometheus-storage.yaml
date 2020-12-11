@@ -12,7 +12,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: prometheus
-    name: prometheus-pvc-prometheus-statefulset-0
+    name: prometheus-pvc-prometheus-0
   local:
     path: /mnt/sda/data/prometheus
   nodeAffinity:
