@@ -3,6 +3,9 @@ kind: DaemonSet
 metadata:
   name: node-exporter
 spec:
+  selector:
+    matchLabels:
+      app: node-exporter
   template:
     metadata:
       labels:
