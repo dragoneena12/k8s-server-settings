@@ -47,6 +47,9 @@ spec:
         - name: secrets-volume
           hostPath:
             path: /var/run/secrets
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
   volumeClaimTemplates:
     - metadata:
         name: prometheus-pvc
