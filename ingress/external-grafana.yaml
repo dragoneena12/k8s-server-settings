@@ -4,4 +4,4 @@ metadata:
   name: grafana
 spec:
   type: ExternalName
-  externalName: grafana.prometheus.svc.cluster.local
+  externalName: grafana.grafana.svc.cluster.local
