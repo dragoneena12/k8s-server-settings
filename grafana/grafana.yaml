@@ -14,9 +14,6 @@ kind: StatefulSet
 metadata:
   name: grafana
 spec:
-  securityContext:
-    runAsUser: 1001
-    runAsGroup: 1001
   replicas: 1
   selector:
     matchLabels:
@@ -36,6 +33,9 @@ spec:
           volumeMounts:
             - name: grafana-pvc
               mountPath: /var/lib/grafana
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
   volumeClaimTemplates:
     - metadata:
         name: grafana-pvc
