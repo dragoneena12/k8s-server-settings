@@ -1,22 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: k8s
+  name: prometheus
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
 spec:
   tls:
     - hosts:
-        - k8s.lapi.gq
-      secretName: k8s-tls
+        - prometheus.lapi.gq
+      secretName: prometheus-tls
   rules:
-    - host: k8s.lapi.gq
+    - host: prometheus.lapi.gq
       http:
         paths:
           - path: /
             backend:
-              serviceName: kubernetes-dashboard
-              servicePort: 443
+              serviceName: prometheus
+              servicePort: 9090
