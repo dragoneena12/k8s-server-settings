@@ -1,7 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: holdem
+  name: holdem-front
 spec:
   type: ExternalName
   externalName: holdem-front.holdem.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: holdem-server
+spec:
+  type: ExternalName
+  externalName: holdem-server.holdem.svc.cluster.local

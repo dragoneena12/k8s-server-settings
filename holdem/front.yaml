@@ -52,6 +52,6 @@ data:
   next.config.js: |
     module.exports = {
       env: {
-        serverAddress: "holdem-server:8765",
+        serverAddress: "https://poker.lapi.gq/api/",
       },
     };

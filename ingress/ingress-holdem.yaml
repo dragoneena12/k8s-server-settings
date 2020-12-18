@@ -17,5 +17,9 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: holdem
+              serviceName: holdem-front
               servicePort: 3000
+          - path: /api/
+            backend:
+              serviceName: holdem-server
+              servicePort: 8765
