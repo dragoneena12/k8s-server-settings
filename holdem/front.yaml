@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: holdem-front
+  namespace: holdem
+  labels:
+    app: holdem-front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: holdem-front
+  template:
+    metadata:
+      labels:
+        app: holdem-front
+    spec:
+      containers:
+        - name: holdem-front
+          image: dragoneena12/holdem-front:latest
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: config
+              mountPath: /usr/src/app/next.config.js
+              readOnly: true
+              subPath: next.config.js
+      volumes:
+        - name: config
+          configMap:
+            name: holdem-front-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: holdem-front
+  namespace: holdem
+spec:
+  selector:
+    app: holdem-front
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: holdem-front-config
+  namespace: holdem
+data:
+  next.config.js: |
+    module.exports = {
+      env: {
+        serverAddress: "holdem-server:8765",
+      },
+    };
