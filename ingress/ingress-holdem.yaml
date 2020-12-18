@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - porker.lapi.gq
+        - poker.lapi.gq
       secretName: holdem-tls
   rules:
-    - host: porker.lapi.gq
+    - host: poker.lapi.gq
       http:
         paths:
           - path: /
