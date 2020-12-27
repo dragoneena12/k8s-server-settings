@@ -12,7 +12,7 @@ spec:
         - cloud.tyoutugai.tk
       secretName: owncloud-tls
   rules:
-    - host: owncloud.lapi.gq
+    - host: cloud.tyoutugai.tk
       http:
         paths:
           - path: /
