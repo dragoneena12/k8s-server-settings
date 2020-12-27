@@ -33,6 +33,14 @@ spec:
           volumeMounts:
             - name: owncloud-pvc
               mountPath: /var/www/html
+      nodeAffinity:
+        required:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                    - node1
   volumeClaimTemplates:
     - metadata:
         name: owncloud-pvc
