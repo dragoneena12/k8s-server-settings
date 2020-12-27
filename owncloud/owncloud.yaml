@@ -33,14 +33,15 @@ spec:
           volumeMounts:
             - name: owncloud-pvc
               mountPath: /mnt/data
-      nodeAffinity:
-        required:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/hostname
-                  operator: In
-                  values:
-                    - node1
+      affinity:
+        nodeAffinity:
+          required:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - node1
   volumeClaimTemplates:
     - metadata:
         name: owncloud-pvc
