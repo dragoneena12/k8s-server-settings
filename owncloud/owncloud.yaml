@@ -35,7 +35,7 @@ spec:
               mountPath: /mnt/data
       affinity:
         nodeAffinity:
-          required:
+          requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
                   - key: kubernetes.io/hostname
