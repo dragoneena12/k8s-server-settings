@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: owncloud
+spec:
+  selector:
+    app: owncloud
+  ports:
+    - name: owncloud
+      port: 80
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: owncloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: owncloud
+  serviceName: owncloud
+  template:
+    metadata:
+      name: owncloud
+      labels:
+        app: owncloud
+    spec:
+      containers:
+        - name: owncloud
+          image: owncloud/server:10.4.1
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: owncloud-pvc
+              mountPath: /var/www/html
+  volumeClaimTemplates:
+    - metadata:
+        name: owncloud-pvc
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 128Gi
