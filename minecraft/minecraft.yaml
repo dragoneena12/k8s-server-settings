@@ -33,7 +33,7 @@ spec:
             - containerPort: 25565
           volumeMounts:
             - name: minecraft-pvc
-              mountPath: /mnt/data
+              mountPath: /data
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
