@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard-configuration
+  labels:
+    manifest: helm
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/dragoneena12/k8s-server-settings.git"
+    path: kubernetes-dashboard
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubernetes-dashboard
+  syncPolicy:
+    automated:
+      prune: true

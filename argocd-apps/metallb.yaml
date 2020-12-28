@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+  labels:
+    manifest: directory
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/dragoneena12/k8s-server-settings.git"
+    path: metallb
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: metallb-system
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

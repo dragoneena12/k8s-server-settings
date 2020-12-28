@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lapi-website-gatsby
+  labels:
+    manifest: directory
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/dragoneena12/k8s-server-settings.git"
+    path: lapi-website-gatsby
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: lapi-website-gatsby
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

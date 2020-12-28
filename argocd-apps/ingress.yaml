@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress
+  labels:
+    manifest: directory
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/dragoneena12/k8s-server-settings.git"
+    path: ingress
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ingress
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
