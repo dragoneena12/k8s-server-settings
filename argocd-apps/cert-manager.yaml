@@ -8,8 +8,8 @@ spec:
   project: default
   source:
     repoURL: "https://charts.jetstack.io"
-    chart: cert-manager:v1.1.0
-    targetRevision: HEAD
+    chart: cert-manager
+    targetRevision: v1.1.0
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
