@@ -29,6 +29,9 @@ spec:
       containers:
         - name: minecraft
           image: itzg/minecraft-server:1.12.0-multiarch
+          env:
+            - name: EULA
+              value: "TRUE"
           ports:
             - containerPort: 25565
           volumeMounts:
