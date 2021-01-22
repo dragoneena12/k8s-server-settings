@@ -3,13 +3,13 @@ kind: Application
 metadata:
   name: metrics-server
   labels:
-    manifest: helm
+    manifest: directory
 spec:
   project: default
   source:
-    repoURL: "https://charts.bitnami.com/bitnami"
-    chart: metrics-server
-    targetRevision: 5.3.4
+    repoURL: "https://github.com/dragoneena12/k8s-server-settings.git"
+    path: metrics-server
+    targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system
