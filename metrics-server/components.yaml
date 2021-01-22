@@ -161,6 +161,10 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp-dir
+        command:
+        - /metrics-server
+        - --kubelet-insecure-tls
+        - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
       nodeSelector:
         kubernetes.io/os: linux
       priorityClassName: system-cluster-critical
