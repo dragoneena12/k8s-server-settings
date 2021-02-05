@@ -21,7 +21,7 @@ spec:
           ingress:
             hosts: rainloop.lapi.gq
         demoMode:
-          enabled: true
+          enabled: false
         domains:
           - mail.lapi.gq
         ssl:
