@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: "https://geek-cookbook.github.io/charts/"
     chart: docker-mailserver
-    targetRevision: 0.2.7
+    targetRevision: 0.3.0
     helm:
       values: |
         pod:
