@@ -21,12 +21,12 @@ spec:
           ingress:
             hosts: rainloop.lapi.gq
         demoMode:
-          enabled: true
+          enabled: false
         domains:
           - mail.lapi.gq
         ssl:
           issuer:
-            name: letsencrypt-staging
+            name: letsencrypt-prod
           kind: ClusterIssuer
           dnsname: lapi.gq
           dns01provider: cloudflare
