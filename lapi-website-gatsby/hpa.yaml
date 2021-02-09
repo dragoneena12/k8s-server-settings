@@ -4,11 +4,6 @@ metadata:
   name: lapi-website-gatsby
   namespace: lapi-website-gatsby
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: lapi-website-gatsby
-  minReplicas: 1
   maxReplicas: 3
   metrics:
   - object:
@@ -22,3 +17,8 @@ spec:
         averageValue: 1
         type: AverageValue
     type: Object
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: lapi-website-gatsby-deployment
