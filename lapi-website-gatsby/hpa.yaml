@@ -11,8 +11,7 @@ spec:
   minReplicas: 1
   maxReplicas: 3
   metrics:
-  - type: Object
-    object:
+  - object:
       describedObject:
         apiVersion: v1
         kind: Service
@@ -20,5 +19,6 @@ spec:
       metric:
         name: requests_per_second
       target:
-        type: AverageValue
         averageValue: 1
+        type: AverageValue
+    type: Object
