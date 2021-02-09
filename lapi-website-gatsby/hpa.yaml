@@ -16,6 +16,7 @@ spec:
       target:
         averageValue: 1
         type: AverageValue
+        value: 0
     type: Object
   minReplicas: 1
   scaleTargetRef:
