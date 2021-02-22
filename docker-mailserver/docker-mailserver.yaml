@@ -25,6 +25,10 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /tmp/docker-mailserver/
+            - name: opendkim
+              mountPath: /tmp/docker-mailserver/opendkim/
+            - name: opendkim-keys-lapi.gq
+              mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
           securityContext:
             capabilities:
               add:
@@ -32,9 +36,14 @@ spec:
                 - SYS_PTRACE
       volumes:
         - name: config
-          hostPath:
-            path: ./config/
-            type: Directory
+          configMap:
+            name: config
+        - name: opendkim
+          configMap:
+            name: opendkim
+        - name: opendkim-keys-lapi.gq
+          configMap:
+            name: opendkim-keys-lapi.gq
 ---
 apiVersion: v1
 kind: Service
