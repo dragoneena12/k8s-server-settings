@@ -44,11 +44,12 @@ spec:
   selector:
     app: docker-mailserver
   ports:
-    - protocol: TCP
+    - name: SMTP
       port: 25
-    - protocol: TCP
+    - name: ESMTP
       port: 143
-    - protocol: TCP
+    - name: POP3
       port: 587
-    - protocol: TCP
+    - name: IMAP4
       port: 993
+  type: LoadBalancer
