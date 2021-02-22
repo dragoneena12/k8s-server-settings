@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-mailserver
+  labels:
+    app: docker-mailserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-mailserver
+  template:
+    metadata:
+      labels:
+        app: docker-mailserver
+    spec:
+      containers:
+        - name: docker-mailserver
+          image: mailserver/docker-mailserver:latest
+          ports:
+            - containerPort: 25
+            - containerPort: 143
+            - containerPort: 587
+            - containerPort: 993
+          volumeMounts:
+            - name: config
+              mountPath: /tmp/docker-mailserver/
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+                - SYS_PTRACE
+      volumes:
+        - name: config
+          hostPath:
+            path: ./config/
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-mailserver
+spec:
+  selector:
+    app: docker-mailserver
+  ports:
+    - protocol: TCP
+      port: 25
+    - protocol: TCP
+      port: 143
+    - protocol: TCP
+      port: 587
+    - protocol: TCP
+      port: 993
