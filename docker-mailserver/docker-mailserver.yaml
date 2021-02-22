@@ -14,6 +14,7 @@ spec:
       labels:
         app: docker-mailserver
     spec:
+      hostname: mail
       containers:
         - name: docker-mailserver
           image: mailserver/docker-mailserver:latest
@@ -34,11 +35,11 @@ spec:
               add:
                 - NET_ADMIN
                 - SYS_PTRACE
-          env:
-            - name: HOSTNAME
-              value: mail
-            - name: DOMAINNAME
-              value: lapi.gq
+          # env:
+          #   - name: HOSTNAME
+          #     value: mail
+          #   - name: DOMAINNAME
+          #     value: lapi.gq
       volumes:
         - name: config
           configMap:
