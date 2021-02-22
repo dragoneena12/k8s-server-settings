@@ -34,6 +34,11 @@ spec:
               add:
                 - NET_ADMIN
                 - SYS_PTRACE
+          env:
+            - name: HOSTNAME
+              value: mail
+            - name: DOMAINNAME
+              value: lapi.gq
       volumes:
         - name: config
           configMap:
