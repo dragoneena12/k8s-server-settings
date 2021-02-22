@@ -41,9 +41,9 @@ spec:
         - name: opendkim
           configMap:
             name: opendkim
-        - name: opendkim-keys-lapi.gq
+        - name: opendkim-keys-lapi-gq
           configMap:
-            name: opendkim-keys-lapi.gq
+            name: opendkim-keys-lapi-gq
 ---
 apiVersion: v1
 kind: Service

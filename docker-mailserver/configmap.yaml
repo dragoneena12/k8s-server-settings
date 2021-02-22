@@ -79,4 +79,4 @@ data:
     )  ; ----- DKIM key mail for lapi.gq\n"
 kind: ConfigMap
 metadata:
-  name: opendkim-keys-lapi.gq
+  name: opendkim-keys-lapi-gq
