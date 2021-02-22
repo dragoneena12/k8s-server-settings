@@ -27,7 +27,7 @@ spec:
               mountPath: /tmp/docker-mailserver/
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/
-            - name: opendkim-keys-lapi.gq
+            - name: opendkim-keys-lapi-gq
               mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
           securityContext:
             capabilities:
