@@ -15,6 +15,7 @@ spec:
         app: docker-mailserver
     spec:
       hostname: mail
+      subdomain: lapi.gq
       containers:
         - name: docker-mailserver
           image: mailserver/docker-mailserver:latest
