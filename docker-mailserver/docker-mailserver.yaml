@@ -63,6 +63,15 @@ spec:
             - name: docker-mailserver-tls
               mountPath: /etc/ssl/mailserver
               readOnly: true
+            - name: data
+              mountPath: /var/mail
+              subPath: data
+            - name: data
+              mountPath: /var/mail-state
+              subPath: state
+            - name: data
+              mountPath: /var/log/mail
+              subPath: log
           securityContext:
             capabilities:
               add:
@@ -86,6 +95,9 @@ spec:
         - name: docker-mailserver-tls
           secret:
             secretName: docker-mailserver-tls
+        - name: data
+          persistentVolumeClaim:
+            claimName: docker-mailserver
 ---
 apiVersion: v1
 kind: Service
