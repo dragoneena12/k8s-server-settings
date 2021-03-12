@@ -90,8 +90,6 @@ spec:
         - name: config
           configMap:
             name: config
-          secret:
-            secretName: postfix-accounts
         - name: postfix-accounts
           secret:
             secretName: postfix-accounts
