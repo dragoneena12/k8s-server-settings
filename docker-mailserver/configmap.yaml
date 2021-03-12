@@ -2,12 +2,8 @@ apiVersion: v1
 data:
   postfix-accounts.cf: |
     lapi@lapi.gq|{SHA512-CRYPT}$6$Dk7cbhhuGDhPFAZ8$5Xf9nlK/7Xhs1ymir9pGUnDe/aDuPhHX/Bb3Mh2BSoXZKzU3Cnc3lEPZ8WxiN69BZJ3YmDe2D3HViQBWtvPQd0
-kind: ConfigMap
-metadata:
-  name: config
----
-apiVersion: v1
-data:
+  postfix-virtual.cf: |
+    webmaster@lapi.gq lapi@lapi.gq
   KeyTable: |
     mail._domainkey.lapi.gq lapi.gq:mail:/etc/opendkim/keys/lapi.gq/mail.private
   SigningTable: |
@@ -17,7 +13,7 @@ data:
     localhost
 kind: ConfigMap
 metadata:
-  name: opendkim
+  name: config
 ---
 apiVersion: v1
 data:
@@ -79,4 +75,4 @@ data:
     )  ; ----- DKIM key mail for lapi.gq\n"
 kind: ConfigMap
 metadata:
-  name: opendkim-keys-lapi-gq
+  name: opendkim-keys
