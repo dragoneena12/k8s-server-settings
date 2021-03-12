@@ -4,6 +4,6 @@ https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/preexi
 
 ## kubeseal
 ```
-kubectl create secret generic test-secret --dry-run --from-literal=password=password -o yaml > test-secret.yaml
+kubectl -n docker-mailserver create secret generic test-secret --dry-run --from-literal=password=password -o yaml > test-secret.yaml
 kubeseal --controller-name=sealed-secrets < test-secret.yaml -o yaml > sealed-test-secret.yaml
 ```
