@@ -90,8 +90,8 @@ spec:
           configMap:
             name: opendkim
         - name: opendkim-keys-lapi-gq
-          configMap:
-            name: opendkim-keys-lapi-gq
+          secret:
+            secretName: opendkim-keys-lapi-gq
         - name: docker-mailserver-tls
           secret:
             secretName: docker-mailserver-tls
