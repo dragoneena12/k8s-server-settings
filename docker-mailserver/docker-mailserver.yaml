@@ -54,9 +54,6 @@ spec:
             - name: config
               mountPath: /tmp/docker-mailserver/
               readOnly: true
-            - name: postfix-accounts
-              mountPath: /tmp/docker-mailserver/config
-              readOnly: true
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/
               readOnly: true
@@ -87,14 +84,12 @@ spec:
               name: relay-secret
       volumes:
         - name: config
-          configMap:
-            name: config
-        - name: postfix-accounts
-          secret:
-            secretName: postfix-accounts
-            items:
-            - key: postfix-accounts.cf
-              path: postfix-accounts.cf
+          projected:
+            sources:
+              - configMap:
+                  name: config
+              - secret:
+                  name: postfix-accounts
         - name: opendkim
           configMap:
             name: opendkim
