@@ -71,6 +71,8 @@ spec:
           envFrom:
           - configMapRef:
               name: env
+          - secretRef:
+              name: relay-secret
       volumes:
         - name: config
           configMap:
