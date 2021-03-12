@@ -57,7 +57,7 @@ spec:
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/
               readOnly: true
-            - name: opendkim-keys
+            - name: opendkim-keys-lapi-gq
               mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
               readOnly: true
             - name: docker-mailserver-tls
@@ -75,9 +75,12 @@ spec:
         - name: config
           configMap:
             name: config
-        - name: opendkim-keys
+        - name: opendkim
           configMap:
-            name: opendkim-keys
+            name: opendkim
+        - name: opendkim-keys-lapi-gq
+          configMap:
+            name: opendkim-keys-lapi-gq
         - name: docker-mailserver-tls
           secret:
             secretName: docker-mailserver-tls
