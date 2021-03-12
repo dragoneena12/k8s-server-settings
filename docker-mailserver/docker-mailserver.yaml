@@ -31,16 +31,16 @@ spec:
               mountPath: /tmp/docker-mailserver/opendkim/
             - name: opendkim-keys-lapi-gq
               mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
+            - name: docker-mailserver-tls
+              mountPath: /etc/letsencrypt
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
                 - SYS_PTRACE
-          # env:
-          #   - name: HOSTNAME
-          #     value: mail
-          #   - name: DOMAINNAME
-          #     value: lapi.gq
+          env:
+            - name: SSL_TYPE
+              value: letsencrypt
       volumes:
         - name: config
           configMap:
@@ -51,6 +51,9 @@ spec:
         - name: opendkim-keys-lapi-gq
           configMap:
             name: opendkim-keys-lapi-gq
+        - name: docker-mailserver-tls
+          secret:
+            secretName: docker-mailserver-tls
 ---
 apiVersion: v1
 kind: Service
