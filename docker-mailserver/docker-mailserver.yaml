@@ -113,10 +113,12 @@ spec:
   ports:
     - name: smtp
       port: 25
-    - name: esmtp
-      port: 143
-    - name: pop3
+    - name: smtp-secure
+      port: 465
+    - name: smtp-auth
       port: 587
-    - name: imap4
+    - name: imap
+      port: 143
+    - name: imap-secure
       port: 993
   type: LoadBalancer
