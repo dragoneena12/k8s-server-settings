@@ -55,7 +55,7 @@ spec:
               mountPath: /tmp/docker-mailserver/
               readOnly: true
             - name: postfix-accounts
-              mountPath: /tmp/docker-mailserver/config/postfix-accounts.cf
+              mountPath: /tmp/docker-mailserver/config
               readOnly: true
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/
