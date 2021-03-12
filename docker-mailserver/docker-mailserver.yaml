@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: env
 data:
-  OVERRIDE_HOSTNAME: lapi.gq
+  OVERRIDE_HOSTNAME: mail.lapi.gq
   ENABLE_FETCHMAIL: "0"
   FETCHMAIL_POLL: "120"
   ENABLE_SPAMASSASSIN: "0"
