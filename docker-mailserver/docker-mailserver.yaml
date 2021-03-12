@@ -32,7 +32,8 @@ spec:
             - name: opendkim-keys-lapi-gq
               mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
             - name: docker-mailserver-tls
-              mountPath: /etc/letsencrypt
+              mountPath: /etc/letsencrypt/live/mail.lapi.gq
+              readOnly: true
           securityContext:
             capabilities:
               add:
@@ -54,6 +55,11 @@ spec:
         - name: docker-mailserver-tls
           secret:
             secretName: docker-mailserver-tls
+            items:
+            - key: tls.crt
+              path: fullchain.pem
+            - key: tls.key
+              path: privkey.pem
 ---
 apiVersion: v1
 kind: Service
