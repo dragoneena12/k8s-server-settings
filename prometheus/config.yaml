@@ -174,7 +174,6 @@ data:
       - source_labels: [__meta_kubernetes_pod_name]
         action: replace
         target_label: kubernetes_pod_name
-    # Scrape config for Kubelet cAdvisor.
     - job_name: 'kubernetes-cadvisor'
       scheme: https
       metrics_path: /metrics/cadvisor
