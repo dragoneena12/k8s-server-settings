@@ -174,3 +174,16 @@ data:
       - source_labels: [__meta_kubernetes_pod_name]
         action: replace
         target_label: kubernetes_pod_name
+    # Scrape config for Kubelet cAdvisor.
+    - job_name: 'kubernetes-cadvisor'
+      scheme: https
+      metrics_path: /metrics/cadvisor
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      authorization:
+        credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      kubernetes_sd_configs:
+      - role: node
+      relabel_configs:
+      - action: labelmap
+        regex: __meta_kubernetes_node_label_(.+)
