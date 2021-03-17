@@ -16,4 +16,5 @@ spec:
       - name: master
         image: amazon/aws-cli
         imagePullPolicy: IfNotPresent
-        tty: true
+        command: ["sh", "-c"]
+
