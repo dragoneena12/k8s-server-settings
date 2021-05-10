@@ -15,7 +15,8 @@ $ kubeseal --controller-name=sealed-secrets < postfix-accounts-plain.yaml -o yam
 
 ## Gen DKIM
 ```
-$ ./setup.sh -i mailserver/docker-mailserver config dkim
+$ ./setup.sh -i mailserver/docker-mailserver:8 config dkim
+$ sudo chown -R lapi:lapi config
 ```
 
 ### convert to sealed secret
