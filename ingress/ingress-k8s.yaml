@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - k8s.lapi.gq
+        - k8s.lapi.tokyo
       secretName: k8s-tls
   rules:
-    - host: k8s.lapi.gq
+    - host: k8s.lapi.tokyo
       http:
         paths:
           - path: /

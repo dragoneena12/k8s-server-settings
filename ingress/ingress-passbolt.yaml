@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - passbolt.lapi.gq
+        - passbolt.lapi.tokyo
       secretName: passbolt-tls
   rules:
-    - host: passbolt.lapi.gq
+    - host: passbolt.lapi.tokyo
       http:
         paths:
           - path: /

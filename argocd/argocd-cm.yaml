@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-cm
 data:
-  url: https://argocd.lapi.gq
+  url: https://argocd.lapi.tokyo
   admin.enabled: "false"
   application.instanceLabelKey: argocd.argoproj.io/instance
   oidc.config: |
@@ -22,4 +22,4 @@ data:
       - openid
       - profile
       - email
-      - 'https://lapi.gq/claims/groups'
+      - 'https://lapi.tokyo/claims/groups'

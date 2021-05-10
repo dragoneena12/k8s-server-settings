@@ -52,6 +52,6 @@ data:
   next.config.js: |
     module.exports = {
       env: {
-        serverAddress: "wss://poker.lapi.gq/api/",
+        serverAddress: "wss://poker.lapi.tokyo/api/",
       },
     };

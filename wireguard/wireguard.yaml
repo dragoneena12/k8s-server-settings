@@ -27,7 +27,7 @@ spec:
             - name: TZ
               value: "Asia/Tokyo"
             - name: SERVERURL
-              value: "vpn.lapi.gq"
+              value: "vpn.lapi.tokyo"
             - name: PEERS
               value: "macbookair,iphone,guest"
           ports:

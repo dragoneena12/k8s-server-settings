@@ -1,6 +1,6 @@
 ## Add mail-account
 ```
-$ ./setup.sh -i mailserver/docker-mailserver email add lapi@lapi.gq
+$ ./setup.sh -i mailserver/docker-mailserver email add lapi@lapi.tokyo
 ```
 or
 ```
@@ -20,6 +20,6 @@ $ ./setup.sh -i mailserver/docker-mailserver config dkim
 
 ### convert to sealed secret
 ```
-$ kubectl create secret generic opendkim-keys-lapi-gq -n docker-mailserver --dry-run=client --from-file=config/opendkim/keys/lapi.gq -o yaml > opendkim-keys-lapi-gq-plain.yaml
+$ kubectl create secret generic opendkim-keys-lapi-gq -n docker-mailserver --dry-run=client --from-file=config/opendkim/keys/lapi.tokyo -o yaml > opendkim-keys-lapi-gq-plain.yaml
 $ kubeseal --controller-name=sealed-secrets < opendkim-keys-lapi-gq-plain.yaml -o yaml > opendkim-keys-lapi-gq.yaml
 ```

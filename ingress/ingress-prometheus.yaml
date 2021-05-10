@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - prometheus.lapi.gq
+        - prometheus.lapi.tokyo
       secretName: prometheus-tls
   rules:
-    - host: prometheus.lapi.gq
+    - host: prometheus.lapi.tokyo
       http:
         paths:
           - path: /

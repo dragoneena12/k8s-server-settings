@@ -26,7 +26,7 @@ spec:
   secretName: docker-mailserver-tls
   # At least one of a DNS Name, URI, or IP address is required.
   dnsNames:
-  - mail.lapi.gq
+  - mail.lapi.tokyo
   # Issuer references are always required.
   issuerRef:
     name: letsencrypt

@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - grafana.lapi.gq
+        - grafana.lapi.tokyo
       secretName: grafana-tls
   rules:
-    - host: grafana.lapi.gq
+    - host: grafana.lapi.tokyo
       http:
         paths:
           - path: /

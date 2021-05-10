@@ -32,7 +32,7 @@ spec:
       initContainers:
         - name: init-genconfig
           image: dragoneena12/docker-openvpn:latest
-          command: ["ovpn_genconfig", "-u", "udp://vpn.lapi.gq"]
+          command: ["ovpn_genconfig", "-u", "udp://vpn.lapi.tokyo"]
           volumeMounts:
             - name: openvpn-pvc
               mountPath: /etc/openvpn

@@ -9,18 +9,18 @@ metadata:
 spec:
   tls:
     - hosts:
-        - www.lapi.gq
-        - lapi.gq
+        - www.lapi.tokyo
+        - lapi.tokyo
       secretName: lapi-website-gatsby-tls
   rules:
-    - host: www.lapi.gq
+    - host: www.lapi.tokyo
       http:
         paths:
           - path: /
             backend:
               serviceName: lapi-website-gatsby
               servicePort: 80
-    - host: lapi.gq
+    - host: lapi.tokyo
       http:
         paths:
           - path: /

@@ -2624,7 +2624,7 @@ metadata:
 data:
   policy.csv: |
     g, lapi-k8s-admin, role:admin
-  scopes: "[https://lapi.gq/claims/groups, email]"
+  scopes: "[https://lapi.tokyo/claims/groups, email]"
 ---
 apiVersion: v1
 data:

@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - poker.lapi.gq
+        - poker.lapi.tokyo
       secretName: holdem-tls
   rules:
-    - host: poker.lapi.gq
+    - host: poker.lapi.tokyo
       http:
         paths:
           - path: /

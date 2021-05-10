@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: env
 data:
-  OVERRIDE_HOSTNAME: mail.lapi.gq
+  OVERRIDE_HOSTNAME: mail.lapi.tokyo
   ENABLE_FETCHMAIL: "0"
   FETCHMAIL_POLL: "120"
   ENABLE_SPAMASSASSIN: "0"
@@ -58,7 +58,7 @@ spec:
               mountPath: /tmp/docker-mailserver/opendkim/
               readOnly: true
             - name: opendkim-keys-lapi-gq
-              mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.gq
+              mountPath: /tmp/docker-mailserver/opendkim/keys/lapi.tokyo
               readOnly: true
             - name: docker-mailserver-tls
               mountPath: /etc/ssl/mailserver
