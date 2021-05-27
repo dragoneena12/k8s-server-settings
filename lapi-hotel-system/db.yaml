@@ -39,7 +39,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: mariadb
+            claimName: lapi-hotel-system
 ---
 apiVersion: v1
 kind: Service
