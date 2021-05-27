@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lapi-website-gatsby
+  name: lapi-hotel-system
 spec:
   type: ExternalName
-  externalName: lapi-website-gatsby-service.lapi-website-gatsby.svc.cluster.local
+  externalName: lapi-hotel-system-service.lapi-hotel-system.svc.cluster.local
