@@ -12,7 +12,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: lapi-hotel-system
-    name: lapi-hotel-system
+    name: mariadb
   local:
     path: /mnt/sda/data/lapi-hotel-system
   nodeAffinity:
