@@ -21,7 +21,7 @@ spec:
             - containerPort: 4000
           volumeMounts:
               - name: config
-                mountPath: /
+                mountPath: /app
                 readOnly: true
       volumes:
         - name: config
