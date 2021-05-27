@@ -51,3 +51,8 @@ spec:
   ports:
     - name: mariadb
       port: 3306
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lapi-hotel-system
