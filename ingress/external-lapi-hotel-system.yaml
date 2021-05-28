@@ -4,4 +4,4 @@ metadata:
   name: lapi-hotel-system
 spec:
   type: ExternalName
-  externalName: lapi-hotel-system-service.lapi-hotel-system.svc.cluster.local
+  externalName: app-service.lapi-hotel-system.svc.cluster.local
