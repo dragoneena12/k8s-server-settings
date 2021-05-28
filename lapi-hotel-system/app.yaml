@@ -5,7 +5,7 @@ metadata:
   labels:
     app: app
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: app
@@ -21,7 +21,8 @@ spec:
             - containerPort: 4000
           volumeMounts:
               - name: config
-                mountPath: /app
+                mountPath: /app/config.ini
+                subPath: config.ini
                 readOnly: true
       volumes:
         - name: config
