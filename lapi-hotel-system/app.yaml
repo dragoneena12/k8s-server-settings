@@ -23,7 +23,6 @@ spec:
               - name: config
                 mountPath: /app/config.ini
                 subPath: config.ini
-                readOnly: true
       volumes:
         - name: config
           secret:
