@@ -30,7 +30,7 @@ spec:
             protocol: TCP
           volumeMounts:
             - name: data
-              mountPath: /var/lib/mariadb
+              mountPath: /var/lib/mysql
           envFrom:
           - configMapRef:
               name: env
