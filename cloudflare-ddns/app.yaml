@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-ddns
+  labels:
+    app: cloudflare-ddns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-ddns
+  template:
+    metadata:
+      labels:
+        app: cloudflare-ddns
+    spec:
+      containers:
+        - name: cloudflare-ddns
+          image: oznu/cloudflare-ddns:latest
+          envFrom:
+          - configMapRef:
+              name: env
+          - secretRef:
+              name: api-secret
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: env
+data:
+  ZONE: lapi.tokyo
