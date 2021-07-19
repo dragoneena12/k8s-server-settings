@@ -48,7 +48,7 @@ patches:
       path: /data
       value:
         url: https://argocd.lapi.tokyo
-        admin.enabled: "true"
+        admin.enabled: "false"
         application.instanceLabelKey: argocd.argoproj.io/instance
         oidc.config: |
           name: Auth0
