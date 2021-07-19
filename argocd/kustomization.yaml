@@ -1,0 +1,76 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- install.yaml
+namespace: argocd
+images:
+- name: quay.io/argoproj/argocd
+  newName: alinbalutoiu/argocd
+  # tmp
+  newTag: v2.0.3
+patches:
+# kustomize 3.9系ではyamlに全角文字コメントがあるとpanicを起こすので、kustomize v3.8.9を使う
+- target:
+    group: apps
+    version: v1
+    name: argocd-repo-server
+    kind: Deployment
+  patch: |-
+    - op: add
+      path: /spec/template/spec/volumes/-
+      value:
+        name: custom-tools
+        emptyDir: {}
+    - op: add
+      path: /spec/template/spec/initContainers
+      value:
+        - name: download-tools
+          image: alpine:3.8
+          command: [sh, -c]
+          args:
+          - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.8.9/kustomize_v3.8.9_linux_arm64.tar.gz | tar -xvzf - &&
+            mv kustomize /custom-tools/
+          volumeMounts:
+          - mountPath: /custom-tools
+            name: custom-tools
+    - op: add
+      path: /spec/template/spec/containers/0/volumeMounts/-
+      value:
+        mountPath: /usr/local/bin/kustomize
+        name: custom-tools
+        subPath: kustomize
+- target:
+    version: v1
+    name: argocd-cm
+    kind: ConfigMap
+  patch: |-
+    - op: add
+      path: /data
+      value:
+        url: https://argocd.lapi.tokyo
+        admin.enabled: "false"
+        application.instanceLabelKey: argocd.argoproj.io/instance
+        oidc.config: |
+          name: Auth0
+          issuer: https://lapi.us.auth0.com/
+          clientID: ijo0ZHt8E4Xv17jAlBG5UKsUaA9TZQxF
+          clientSecret: $oidc.auth0.clientSecret
+          requestedIDTokenClaims:
+            groups:
+              essential: true
+          requestedScopes:
+            - openid
+            - profile
+            - email
+            - 'https://lapi.tokyo/claims/groups'
+- target:
+    version: v1
+    name: argocd-rbac-cm
+    kind: ConfigMap
+  patch: |-
+    - op: add
+      path: /data
+      value:
+        policy.csv: |
+          g, lapi-k8s-admin, role:admin
+        scopes: "[https://lapi.tokyo/claims/groups, email]"
