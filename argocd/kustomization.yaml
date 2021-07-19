@@ -28,7 +28,7 @@ patches:
           image: alpine:3.8
           command: [sh, -c]
           args:
-          - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.8.9/kustomize_v3.8.9_linux_amd64.tar.gz | tar -xvzf - &&
+          - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.8.9/kustomize_v3.8.9_linux_arm64.tar.gz | tar -xvzf - &&
             mv kustomize /custom-tools/
           volumeMounts:
           - mountPath: /custom-tools
