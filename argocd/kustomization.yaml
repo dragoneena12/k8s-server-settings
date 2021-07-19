@@ -48,7 +48,7 @@ patches:
       path: /data
       value:
         url: https://argocd.lapi.tokyo
-        admin.enabled: "false"
+        admin.enabled: "true"
         application.instanceLabelKey: argocd.argoproj.io/instance
         oidc.config: |
           name: Auth0
@@ -63,3 +63,14 @@ patches:
             - profile
             - email
             - 'https://lapi.tokyo/claims/groups'
+- target:
+    version: v1
+    name: argocd-rbac-cm
+    kind: ConfigMap
+  patch: |-
+    - op: add
+      path: /data
+      value:
+        policy.csv: |
+          g, lapi-k8s-admin, role:admin
+        scopes: "[https://lapi.tokyo/claims/groups, email]"
