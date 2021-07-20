@@ -6,7 +6,7 @@ namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
   newName: dragoneena12/argocd
-  newTag: v2.0.4
+  newTag: v2.0.4-arm64
 patches:
 # kustomize 3.9系ではyamlに全角文字コメントがあるとpanicを起こすので、kustomize v3.8.9を使う
 - target:
