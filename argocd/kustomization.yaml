@@ -5,9 +5,8 @@ resources:
 namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
-  newName: alinbalutoiu/argocd
-  # tmp
-  newTag: v2.0.3
+  newName: dragoneena12/argocd
+  newTag: v2.0.4
 patches:
 # kustomize 3.9系ではyamlに全角文字コメントがあるとpanicを起こすので、kustomize v3.8.9を使う
 - target:
