@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: docker-mailserver
-          image: mailserver/docker-mailserver:latest
+          image: mailserver/docker-mailserver:8.0
           ports:
           - name: smtp
             containerPort: 25
