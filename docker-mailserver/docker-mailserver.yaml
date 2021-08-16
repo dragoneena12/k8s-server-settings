@@ -128,9 +128,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: docker-mailserver
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
   resources:
     requests:
       storage: 10Gi
