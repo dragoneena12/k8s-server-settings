@@ -5,7 +5,7 @@ metadata:
   labels:
     app: lapi-website-gatsby
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: lapi-website-gatsby
