@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cdg-stg
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+spec:
+  tls:
+    - hosts:
+        - cdg-stg.lapi.tokyo
+        - api.cdg-stg.lapi.tokyo
+      secretName: cdg-stg-tls
+  rules:
+    - host: cdg-stg.lapi.tokyo
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: cdg-stg
+              servicePort: 3000
+    - host: api.cdg-stg.lapi.tokyo
+      http:
+        paths:
+          - path: /graphql
+            backend:
+              serviceName: cdg-app-stg
+              servicePort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cdg-app-stg
+spec:
+  type: ExternalName
+  externalName: app.cdg-stg.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cdg-front-stg
+spec:
+  type: ExternalName
+  externalName: front.cdg-stg.svc.cluster.local

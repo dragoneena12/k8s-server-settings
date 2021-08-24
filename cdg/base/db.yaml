@@ -1,0 +1,53 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: env
+data:
+  MARIADB_DATABASE: cdg
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+        - name: mariadb
+          image: arm64v8/mariadb:10
+          ports:
+          - name: mariadb
+            containerPort: 3306
+            protocol: TCP
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/mysql
+          envFrom:
+          - configMapRef:
+              name: env
+          - secretRef:
+              name: db-secret
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: cdg-db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+spec:
+  selector:
+    app: mariadb
+  ports:
+    - name: mariadb
+      port: 3306

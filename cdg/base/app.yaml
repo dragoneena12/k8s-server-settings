@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: dragoneena12/cdg-back:latest
+          ports:
+            - containerPort: 4000
+          volumeMounts:
+              - name: config
+                mountPath: /config.ini
+                subPath: config.ini
+                readOnly: true
+              - name: data
+                mountPath: /storage/
+      volumes:
+        - name: config
+          secret:
+            secretName: app-secret
+        - name: data
+          persistentVolumeClaim:
+            claimName: cdg-static
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app
+spec:
+  selector:
+    app: app
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
