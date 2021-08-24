@@ -19,18 +19,9 @@ spec:
           image: dragoneena12/cdg-front:latest
           ports:
             - containerPort: 3000
-          volumeMounts:
-            - name: front-env
-              mountPath: /usr/src/app/.env.local
-              subPath: .env.local
-              readOnly: true
           envFrom:
           - configMapRef:
               name: next-env
-      volumes:
-        - name: front-env
-          configMap:
-            name: front-env
 ---
 apiVersion: v1
 kind: Service
