@@ -27,9 +27,6 @@ spec:
             backend:
               serviceName: cdg-app-stg
               servicePort: 4000
-    - host: api.cdg-stg.lapi.tokyo
-      http:
-        paths:
           - path: /static
             backend:
               serviceName: cdg-app-stg
