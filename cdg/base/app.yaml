@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app
+  name: app-svc
 spec:
   selector:
     app: app

@@ -6,4 +6,4 @@ resources:
 - app-secret.yaml
 - front-env.yaml
 - pvc.yaml
-namespace: cdg-stg
+namespace: cdg-staging
