@@ -11,6 +11,6 @@ configMapGenerator:
   literals:
   - NEXT_PUBLIC_ORIGIN=https://cdg-stg.lapi.tokyo
   - NEXT_PUBLIC_API_URL=https://api.cdg-stg.lapi.tokyo/graphql
-  - NEXT_PUBLIC_ASSETS_URL=https://api.cdg-stg.lapi.tokyo/assets/
+  - NEXT_PUBLIC_ASSETS_URL=https://api.cdg-stg.lapi.tokyo/static/
   - NEXT_PUBLIC_AUTH_CLIENT_ID=F6GbKXfELGjVePRisKIisyEFgDB0dVVi
   - NEXT_PUBLIC_AUTH0_DOMAIN=cdg-stg.jp.auth0.com
