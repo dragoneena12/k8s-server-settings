@@ -18,7 +18,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: cdg-stg
+              serviceName: cdg-front-stg
               servicePort: 3000
     - host: api.cdg-stg.lapi.tokyo
       http:
