@@ -10,12 +10,7 @@ kubectl create secret generic db-secret -n cdg-staging --dry-run=client --from-l
 kubeseal --controller-name=sealed-secrets < db-secret-plain.yaml -o yaml > db-secret.yaml
 ```
 
-## make front envs
-```
-kubectl create configmap front-env -n lapi-hotel-system --dry-run=client --from-file=.env.local -o yaml > front-env.yaml
-```
-
 ## access adminer
 ```
-kubectl port-forward svc/adminer -n lapi-hotel-system 8080:8080 --address 0.0.0.0
+kubectl port-forward svc/adminer -n cdg-staging 8080:8080 --address 0.0.0.0
 ```

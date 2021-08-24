@@ -20,10 +20,36 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-              - name: front-env
-                mountPath: /.env.local
-                subPath: .env.local
-                readOnly: true
+            - name: front-env
+              mountPath: /usr/src/app/.env.local
+              subPath: .env.local
+              readOnly: true
+          env:
+          - name: NEXT_PUBLIC_ORIGIN
+            valueFrom:
+              configMapKeyRef:
+                name: next-env
+                key: NEXT_PUBLIC_ORIGIN
+          - name: NEXT_PUBLIC_API_URL
+            valueFrom:
+              configMapKeyRef:
+                name: next-env
+                key: NEXT_PUBLIC_API_URL
+          - name: NEXT_PUBLIC_ASSETS_URL
+            valueFrom:
+              configMapKeyRef:
+                name: next-env
+                key: NEXT_PUBLIC_ASSETS_URL
+          - name: NEXT_PUBLIC_AUTH_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: next-env
+                key: NEXT_PUBLIC_AUTH_CLIENT_ID
+          - name: NEXT_PUBLIC_AUTH0_DOMAIN
+            valueFrom:
+              configMapKeyRef:
+                name: next-env
+                key: NEXT_PUBLIC_AUTH0_DOMAIN
       volumes:
         - name: front-env
           configMap:
