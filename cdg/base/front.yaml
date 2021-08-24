@@ -27,7 +27,7 @@ spec:
       volumes:
         - name: front-env
           configMap:
-            name: app-secret
+            name: front-env
 ---
 apiVersion: v1
 kind: Service
