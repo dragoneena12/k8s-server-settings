@@ -11,6 +11,7 @@ spec:
   tls:
     - hosts:
         - www.lapi.tokyo
+        - lapi.tokyo
       secretName: lapi-website-gatsby-tls
   rules:
     - host: www.lapi.tokyo
