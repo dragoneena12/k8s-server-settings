@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-slave
+  labels:
+    app: jenkins-slave
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-slave
+  template:
+    metadata:
+      labels:
+        app: jenkins-slave
+    spec:
+      containers:
+        - name: master
+          image: dragoneena12/jenkins-slave:latest
+          ports:
+            - containerPort: 20022
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-slave
+spec:
+  selector:
+    app: jenkins-slave
+  ports:
+    - protocol: TCP
+      port: 20022
+      targetPort: 20022
