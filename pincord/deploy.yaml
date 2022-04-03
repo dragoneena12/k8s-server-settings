@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pincord
+  labels:
+    app: pincord
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pincord
+  template:
+    metadata:
+      labels:
+        app: pincord
+    spec:
+      containers:
+        - name: pincord
+          image: dragoneena12/pincord:v1.0.0
