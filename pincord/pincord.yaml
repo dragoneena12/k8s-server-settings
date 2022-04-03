@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pincord
-          image: dragoneena12/pincord:v1.0.0
+          image: dragoneena12/pincord:latest
           envFrom:
             - secretRef:
                 name: token
