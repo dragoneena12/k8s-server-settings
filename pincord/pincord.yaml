@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pincord
+  labels:
+    app: pincord
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pincord
+  template:
+    metadata:
+      labels:
+        app: pincord
+    spec:
+      containers:
+        - name: pincord
+          image: dragoneena12/pincord:v1.0.0
+          envFrom:
+            - secretRef:
+                name: token
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: token
+  namespace: pincord
+spec:
+  encryptedData:
+    DISCORD_BOT_TOKEN: AgDB9VidVdH3L39WGjI2wNZ0uLhfDcX0TWC19FC5M8LnEZ1mBQQVztT0p9CcSh7smnCboL3/IQRc/KgHAzBiYJxbOq+uiRqETtzLiYhnQTbYz0ysh9N5UOBnYVMx8Ulya8PYBWsN81sHhSQ901JN/zi+Eydw+JgydXjtRnVoBp926/8f4PQZmn5ASQEMM1cA34TzgU3Xuee9ktyqZ6WbYp+rxXwNAJxTXi490G0jk4SRP54Wv+X39BO6UaSTugHE4Ur7dvesifLJ2DRqAosoQYORyPyw0CZ8MZoQOtP3OCHo5ZGbLNt4sWv+g6oBm0OXQqM1iqvyX+wzVVhCCFr9GvIYgi9t9IcojaVMG558hE3eGI0vgHwNrauQTecTnRkt05XRbIuX/TRflWtob5l1aTJU4KgGbtxLyx6nQwYezPasVUSH8osAw8wJ2opBzHujbamzAZs7La7npObT5/5JFmCiLs1FlXt65Hx0b7Ig8qtOqLRdbL77JxAsGcCt7FlGR1MjdxxLaiVEK+p/vYYzxvgSFNVXEmXQx7Z1Yyy3TYYSDvszYubv71L2QSRPHh/9lz6mxNpXiFacpVkyciNYDzDBO99nLUnnm6rXEB3qXGxuOjBmqoUCoTKShNaGhJi4b5bEVbCioyv8zp0pKz1ihuMlWJOT45Z0DMnTHf6sg1K5+81SnUvN6ZkNCjUMsXjwdJYq77dnG6nuUOnGUDmAJOAHFUpp6L4/dT9cMVKXTchvPZtFCSeqbi7nENlQOHFZLOTY2jLqc59mG7Yujw==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: token
+      namespace: pincord
