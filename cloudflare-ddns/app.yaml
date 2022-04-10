@@ -29,3 +29,36 @@ metadata:
   name: env
 data:
   ZONE: lapi.tokyo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-ddns-ipv6
+  labels:
+    app: cloudflare-ddns-ipv6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-ddns-ipv6
+  template:
+    metadata:
+      labels:
+        app: cloudflare-ddns-ipv6
+    spec:
+      containers:
+        - name: cloudflare-ddns
+          image: oznu/cloudflare-ddns:latest
+          envFrom:
+          - configMapRef:
+              name: env-ipv6
+          - secretRef:
+              name: api-secret
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: env-ipv6
+data:
+  ZONE: lapi.tokyo
+  RRTYPE: AAAA
