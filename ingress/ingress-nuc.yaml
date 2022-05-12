@@ -11,25 +11,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - utfurry.tk
-        - wiki.utfurry.tk
         - cloud.utfurry.tk
       secretName: nuc-tls
   rules:
-    - host: utfurry.tk
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: nuc
-              servicePort: 443
-    - host: wiki.utfurry.tk
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: nuc
-              servicePort: 443
     - host: cloud.utfurry.tk
       http:
         paths:
