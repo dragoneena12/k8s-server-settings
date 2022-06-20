@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - cloud.utfurry.tk
+        - cloud.furrylab.jp
       secretName: nuc-tls
   rules:
-    - host: cloud.utfurry.tk
+    - host: cloud.furrylab.jp
       http:
         paths:
           - path: /
