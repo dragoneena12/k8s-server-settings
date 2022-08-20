@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - cloud.tyoutugai.tk
+        - fs.lapi.tokyo
       secretName: owncloud-tls
   rules:
-    - host: cloud.tyoutugai.tk
+    - host: fs.lapi.tokyo
       http:
         paths:
           - path: /
