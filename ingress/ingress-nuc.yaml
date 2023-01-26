@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - storage.lapi.tokyo
+        - cloud.furrylab.jp
       secretName: nuc-tls
   rules:
-    - host: storage.lapi.tokyo
+    - host: cloud.furrylab.jp
       http:
         paths:
           - path: /
