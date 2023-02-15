@@ -45,7 +45,7 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - node1
+                      - node2
   volumeClaimTemplates:
     - metadata:
         name: minecraft-pvc
