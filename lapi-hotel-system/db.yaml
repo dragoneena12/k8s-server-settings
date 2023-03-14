@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: mariadb
-          image: arm64v8/mariadb:10
+          image: mariadb:10.7
           ports:
           - name: mariadb
             containerPort: 3306
